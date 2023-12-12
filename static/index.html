@@ -69,55 +69,79 @@
       cursor: pointer;
       border-radius: 5px;
     }
+
+    /* Snowfall effect container */
+    .snow-container {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+    }
+
+    /* Snowflake styling and animation */
+    .snowflake {
+      position: absolute;
+      width: 5px;
+      height: 5px;
+      background-color: #fff;
+      border-radius: 50%;
+      pointer-events: none;
+      animation: snowfall linear infinite;
+    }
+
+    @keyframes snowfall {
+      to {
+        transform: translateY(100vh);
+      }
+    }
   </style>
 </head>
 <body>
 <div class="fixed-nav-bar">
   <div class="fixed-nav-bar-container"><a class="icon" href="/./"><img id="INImg" src="main.png"></a></div>
-    <div class="fixed-nav-bar-right">
-        <a class="navbar-link" href="/./events"><i class="fa-solid fa-gamepad navbar-icon"></i>Games</a>      
-        <a class="navbar-link" href="/./news"><span class="material-symbols-outlined weird-icon">apps</span>Apps</a>
-        <a class="navbar-link" href="/./local-news"><i class="fa-solid fa-table navbar-icon"></i>Tabs</a>
-        <a class="navbar-link" href="/./diagnostic"><i class="fa-solid fa-gear navbar-icon settings-icon"></i>Settings</a>
-      </div>
-    </div>
-    <div id="particles-js">
-      <script rel="preload" src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
-        <div class="main">
-          <h1 class="title">Interstellar</h1>
-          <div class="search-container">
-            <form method="POST">
-              <input class="main-search" placeholder="Search with Google or enter address" type="text"/>
-            </form>
-          </div>
-          <button id="letItSnowButton" onclick="startSnowEffect()">Let it Snow</button> <!-- Add the button -->
-        </div>
+  <div class="fixed-nav-bar-right">
+    <a class="navbar-link" href="/./events"><i class="fa-solid fa-gamepad navbar-icon"></i>Games</a>
+    <a class="navbar-link" href="/./news"><span class="material-symbols-outlined weird-icon">apps</span>Apps</a>
+    <a class="navbar-link" href="/./local-news"><i class="fa-solid fa-table navbar-icon"></i>Tabs</a>
+    <a class="navbar-link" href="/./diagnostic"><i class="fa-solid fa-gear navbar-icon settings-icon"></i>Settings</a>
+  </div>
+</div>
+<div id="particles-js">
+  <script rel="preload" src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+  <div class="main">
+    <h1 class="title">Interstellar</h1>
+    <div class="search-container">
+      <form method="POST">
+        <input class="main-search" placeholder="Search with Google or enter address" type="text"/>
+      </form>
+      <button id="letItSnowButton" onclick="startSnowEffect()">Let it Snow</button> <!-- Add the button -->
     </div>
   </div>
-  <div class="footer">
-      <!--- Your existing footer content -->
-      <div class="lower-footer">
-        <h1><a href="https://github.com/interstellarnetwork/interstellar">GitHub</a>&#12539;<a href="https://discord.gg/interstellar">Discord</a>&#12539;<a href="https://status.gointerstellar.app/">Status</a></h1>
-      </div>
-    </div>
+</div>
+<div class="footer">
+  <!--- Your existing footer content -->
+  <div class="lower-footer">
+    <h1><a href="https://github.com/interstellarnetwork/interstellar">GitHub</a>&#12539;<a href="https://discord.gg/interstellar">Discord</a>&#12539;<a href="https://status.gointerstellar.app/">Status</a></h1>
   </div>
-  <script src="assets/scripts/index.js"></script>
-  <script src="./contact/bundle.js"></script>
-  <script src="./contact/config.js"></script>
-  <script src="https://kit.fontawesome.com/1237c86ba0.js" crossorigin="anonymous"></script>
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-WKJQ5QHQTJ"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-
-    function gtag() {
-      dataLayer.push(arguments);
-    }
-    gtag('js', new Date());
-    gtag('config', 'G-WKJQ5QHQTJ');
-  </script>
-  <script src="/assets/scripts/global.js"></script>
-  <script src="/assets/scripts/settings.js"></script>
-  <script src="/assets/scripts/snow.js"></script> <!-- Add a new JS file for snow effect -->
+</div>
+<script src="assets/scripts/index.js"></script>
+<script src="./contact/bundle.js"></script>
+<script src="./contact/config.js"></script>
+<script src="https://kit.fontawesome.com/1237c86ba0.js" crossorigin="anonymous"></script>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-WKJQ5QHQTJ"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag() {
+    dataLayer.push(arguments);
+  }
+  gtag('js', new Date());
+  gtag('config', 'G-WKJQ5QHQTJ');
+</script>
+<script src="/assets/scripts/global.js"></script>
+<script src="/assets/scripts/settings.js"></script>
+<script src="/assets/scripts/snow.js"></script> <!-- Add a new JS file for snow effect -->
 </body>
 </html>

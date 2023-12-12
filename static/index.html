@@ -7,25 +7,57 @@
     body {
       margin: 0;
       overflow: hidden;
-      background-color: #000; /* Set background color to black */
+      color: #fff;
+    }
+
+    #particleCanvas {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      z-index: 0;
+    }
+
+    .clean-ui-button {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      text-align: center;
+      text-decoration: none;
+      font-size: 16px;
+      cursor: pointer;
+      border-radius: 5px;
+      z-index: 1;
     }
 
     .fixed-nav-bar {
       background-color: #000;
+      z-index: 1;
     }
 
     .fixed-nav-bar-container img {
       filter: brightness(0) invert(1);
     }
 
+    .navbar-link {
+      color: #fff;
+      margin-right: 20px;
+      text-decoration: none;
+    }
+
     #particles-js {
       position: absolute;
       width: 100%;
       height: 100%;
+      z-index: 0;
     }
 
     .main {
       z-index: 1;
+      position: relative;
     }
 
     .title {
@@ -35,46 +67,39 @@
     .main-search {
       background-color: #222;
       color: #fff;
+      padding: 10px;
+      border: none;
+      border-radius: 5px;
+      width: 300px;
     }
 
     .footer {
       background-color: #000;
       color: #fff;
+      z-index: 1;
     }
 
     .lower-footer a {
       color: #fff;
-    }
-
-    /* Clean UI for the button */
-    #letItSnowButton {
-      background-color: #4CAF50;
-      color: white;
-      border: none;
-      padding: 10px 20px;
-      text-align: center;
+      margin-right: 20px;
       text-decoration: none;
-      display: inline-block;
-      font-size: 16px;
-      margin: 4px 2px;
-      cursor: pointer;
-      border-radius: 5px;
     }
   </style>
   <title>Snowfall Animation</title>
 </head>
 <body>
   <canvas id="particleCanvas"></canvas>
+  <button class="clean-ui-button" onclick="startSnowEffect()">Let it Snow</button>
   <div class="fixed-nav-bar">
     <div class="fixed-nav-bar-container"><a class="icon" href="/./"><img id="INImg" src="main.png"></a></div>
     <div class="fixed-nav-bar-right">
-      <a class="navbar-link" href="/./events"><i class="fa-solid fa-gamepad navbar-icon"></i>Games</a>
-      <a class="navbar-link" href="/./news"><span class="material-symbols-outlined weird-icon">apps</span>Apps</a>
-      <a class="navbar-link" href="/./local-news"><i class="fa-solid fa-table navbar-icon"></i>Tabs</a>
-      <a class="navbar-link" href="/./diagnostic"><i class="fa-solid fa-gear navbar-icon settings-icon"></i>Settings</a>
+      <a class="navbar-link" href="/./events">Games</a>
+      <a class="navbar-link" href="/./news">Apps</a>
+      <a class="navbar-link" href="/./local-news">Tabs</a>
+      <a class="navbar-link" href="/./diagnostic">Settings</a>
     </div>
   </div>
-  <div id="particles-js">
+  <div id="particles-js" class="main">
     <script rel="preload" src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
     <div class="main">
       <h1 class="title">Jack's Interstellar</h1>
@@ -82,31 +107,17 @@
         <form method="POST">
           <input class="main-search" placeholder="Search with Google or enter address" type="text"/>
         </form>
-        <button id="letItSnowButton" onclick="startSnowEffect()">Let it Snow</button> <!-- Add the button -->
       </div>
     </div>
   </div>
   <div class="footer">
     <div class="lower-footer">
-      <h1><a href="https://github.com/interstellarnetwork/interstellar">GitHub</a>&#12539;<a href="https://discord.gg/interstellar">Discord</a>&#12539;<a href="https://status.gointerstellar.app/">Status</a></h1>
+      <a href="https://github.com/interstellarnetwork/interstellar">GitHub</a>
+      <a href="https://discord.gg/interstellar">Discord</a>
+      <a href="https://status.gointerstellar.app/">Status</a>
     </div>
   </div>
-  <script src="assets/scripts/index.js"></script>
-  <script src="./contact/bundle.js"></script>
-  <script src="./contact/config.js"></script>
   <script src="https://kit.fontawesome.com/1237c86ba0.js" crossorigin="anonymous"></script>
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-WKJQ5QHQTJ"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag() {
-      dataLayer.push(arguments);
-    }
-    gtag('js', new Date());
-    gtag('config', 'G-WKJQ5QHQTJ');
-  </script>
-  <script src="/assets/scripts/global.js"></script>
-  <script src="/assets/scripts/settings.js"></script>
   <script>
     const canvas = document.getElementById('particleCanvas');
     const ctx = canvas.getContext('2d');
@@ -160,16 +171,20 @@
       requestAnimationFrame(animate);
     }
 
+    function startSnowEffect() {
+      canvas.style.zIndex = 2; // Bring canvas to the front
+      createSnowflakes();
+      animate();
+    }
+
     function resizeCanvas() {
       canvas.width = window.innerWidth;
       canvas.height = window.innerHeight;
-      createSnowflakes();
     }
 
     window.addEventListener('resize', resizeCanvas, false);
 
     resizeCanvas(); // Call resizeCanvas initially to set the correct canvas size
-    animate();
   </script>
 </body>
 </html>

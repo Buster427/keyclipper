@@ -20,20 +20,21 @@
       background-color: #000; /* Set background color to black */
     }
   </style>
+  <!-- Load particles.js script -->
+  <script rel="preload" src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
 </head>
 
 <body>
   <div class="fixed-nav-bar">
     <!-- Your existing UI code -->
   </div>
-  <div id="particles-js">
-    <div class="main">
-      <h1 class="title">Jack's Proxy</h1>
-      <div class="search-container">
-        <form method="POST">
-          <input class="main-search" placeholder="Search with Google or enter address" type="text" />
-        </form>
-      </div>
+  <div id="particles-js"></div>
+  <div class="main">
+    <h1 class="title">Jack's Proxy</h1>
+    <div class="search-container">
+      <form method="POST">
+        <input class="main-search" placeholder="Search with Google or enter address" type="text" />
+      </form>
     </div>
   </div>
   <div class="footer">
@@ -87,6 +88,22 @@
 
     resizeCanvas(); // Call resizeCanvas initially to set the correct canvas size
     animate();
+  </script>
+
+  <!-- Initialize particles.js -->
+  <script>
+    particlesJS('particles-js', {
+      // Customize particles.js configuration as needed
+      particles: {
+        number: {
+          value: 80,
+          density: {
+            enable: true,
+            value_area: 800,
+          },
+        },
+      },
+    });
   </script>
 </body>
 

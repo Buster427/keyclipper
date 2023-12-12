@@ -19,13 +19,38 @@
       margin: 0;
       overflow: hidden;
       background-color: #000; /* Set background color to black */
+      font-family: 'Material Symbols Outlined', sans-serif; /* Use the Material Symbols Outlined font */
+    }
+
+    .fixed-nav-bar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background-color: #333; /* Set background color for the fixed bar */
+      padding: 10px;
+      text-align: center;
+      color: white;
+      z-index: 1000; /* Ensure the bar is above other elements */
+    }
+
+    .fixed-nav-bar a {
+      color: white;
+      margin: 0 10px;
+      text-decoration: none;
+    }
+
+    .main {
+      padding-top: 50px; /* Add padding to the main content to avoid being overlapped by the fixed bar */
     }
   </style>
 </head>
 
 <body>
   <div class="fixed-nav-bar">
-    <!-- Your existing UI code -->
+    <a href="#">Game 1</a>
+    <a href="#">Game 2</a>
+    <!-- Add more game links as needed -->
   </div>
 
   <div id="particles-js"></div>
@@ -56,42 +81,7 @@
 
   <!-- Snowfall Animation Script -->
   <script>
-    const canvas = document.getElementById('particleCanvas');
-    const ctx = canvas.getContext('2d');
-
-    function Snowflake() {
-      // Your existing snowflake code...
-    }
-
-    const snowflakes = [];
-
-    function createSnowflakes() {
-      for (let i = 0; i < 100; i++) {
-        snowflakes.push(new Snowflake());
-      }
-    }
-
-    function animate() {
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-      for (let i = 0; i < snowflakes.length; i++) {
-        snowflakes[i].update();
-        snowflakes[i].draw();
-      }
-
-      requestAnimationFrame(animate);
-    }
-
-    function resizeCanvas() {
-      canvas.width = window.innerWidth;
-      canvas.height = window.innerHeight;
-      createSnowflakes();
-    }
-
-    window.addEventListener('resize', resizeCanvas, false);
-
-    resizeCanvas(); // Call resizeCanvas initially to set the correct canvas size
-    animate();
+    // Your existing snowfall animation script
   </script>
 
   <!-- Initialize particles.js -->

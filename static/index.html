@@ -111,7 +111,7 @@
 <div id="particles-js">
   <script rel="preload" src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
   <div class="main">
-    <h1 class="title">Jack's Proxy</h1>
+    <h1 class="title">Jack's Interstellar Hack</h1>
     <div class="search-container">
       <form method="POST">
         <input class="main-search" placeholder="Search with Google or enter address" type="text"/>
@@ -142,6 +142,10 @@
 </script>
 <script src="/assets/scripts/global.js"></script>
 <script src="/assets/scripts/settings.js"></script>
-<script src="/assets/scripts/snow.js"></script> <!-- Add a new JS file for snow effect -->
-</body>
-</html>
+<script>
+  function startSnowEffect() {
+    const snowContainer = document.createElement('div');
+    snowContainer.className = 'snow-container';
+    document.body.appendChild(snowContainer);
+
+    for (let i = 0; i < 

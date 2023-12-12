@@ -167,46 +167,4 @@
 
       this.draw = function () {
         ctx.fillStyle = 'white'; // Set snowflake color to white
-        ctx.beginPath();
-        ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-        ctx.closePath();
-        ctx.fill();
-      };
-    }
-
-    const snowflakes = [];
-
-    function createSnowflakes() {
-      for (let i = 0; i < 100; i++) {
-        snowflakes.push(new Snowflake());
-      }
-    }
-
-    function animate() {
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-      for (let i = 0; i < snowflakes.length; i++) {
-        snowflakes[i].update();
-        snowflakes[i].draw();
-      }
-
-      requestAnimationFrame(animate);
-    }
-
-    function startSnowEffect() {
-      canvas.style.zIndex = 2; // Bring canvas to the front
-      createSnowflakes();
-      animate();
-    }
-
-    function resizeCanvas() {
-      canvas.width = window.innerWidth;
-      canvas.height = window.innerHeight;
-    }
-
-    window.addEventListener('resize', resizeCanvas, false);
-
-    resizeCanvas(); // Call resizeCanvas initially to set the correct canvas size
-  </script>
-</body>
-</html>
+        ctx.beginPath

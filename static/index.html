@@ -47,9 +47,10 @@
 </head>
 
 <body>
-  <div class="fixed-nav-bar">
-    <a href="#">Game 1</a>
-    <a href="#">Game 2</a>
+  <div class="fixed-nav-bar" id="gameNav">
+    <!-- Placeholder links for games -->
+    <a href="#" onclick="changeGame('Game 1')">Game 1</a>
+    <a href="#" onclick="changeGame('Game 2')">Game 2</a>
     <!-- Add more game links as needed -->
   </div>
 
@@ -99,6 +100,12 @@
         },
       },
     });
+
+    // Placeholder function to simulate changing games
+    function changeGame(gameName) {
+      alert('Changing to ' + gameName);
+      // Add your logic to change the game content here
+    }
   </script>
 </body>
 
